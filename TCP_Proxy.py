@@ -113,3 +113,27 @@ def request_handler(buffer):
 
 def response_handler(buffer):
     return buffer
+
+
+def main():
+    if len(sys.argv[1:]) != 5:
+        print "Plise use correct formate!!"
+        sys.exit()
+
+    local_host = sys.argv[1]
+    local_port = int(sys.argv[2])
+
+    remote_host = sys.argv[3]
+    remote_port = int(sys.argv[4])
+
+    receive_first = sys.argv[5]
+
+    if "True" in receive_first:
+        receive_first = True
+    else:
+        receive_first = False
+
+    server_loop(local_host, local_port, remote_host, remote_port, receive_first)
+
+
+main()
